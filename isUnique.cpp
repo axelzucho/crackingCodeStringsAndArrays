@@ -4,7 +4,7 @@
 using namespace std;
 
 bool usingStructures(string ex){
-    hash<bool> check;
+    map<int,bool> check;
     for(auto i: ex){
         if(check[i]) return false;
         check[i] = true;
@@ -12,6 +12,8 @@ bool usingStructures(string ex){
     return true;
 }
 
-int main(){
-    cout << usingStructures("Axelf");
+bool notUsingStructures(string ex){
+    sort(ex.begin(),ex.end());
+    for(int i = 0; i < ex.size() - 1; ++i) if (ex[i] == ex[i+1]) return false;
+    return true;
 }
